@@ -23,9 +23,9 @@ class YOLO(object):
         "model_path": 'model_data/yolo.h5',
         "anchors_path": 'model_data/yolo_anchors.txt',
         "classes_path": 'model_data/coco_classes.txt',
-        "score" : 0.3,
-        "iou" : 0.45,
-        "model_image_size" : (416, 416),
+        "score" : 0.1,
+        "iou" : 0.8,
+        "model_image_size" : (608, 608),
         "gpu_num" : 1,
     }
 
@@ -38,6 +38,7 @@ class YOLO(object):
 
     def __init__(self, **kwargs):
         self.__dict__.update(self._defaults) # set up default values
+        print(kwargs)
         self.__dict__.update(kwargs) # and update with user overrides
         self.class_names = self._get_class()
         self.anchors = self._get_anchors()
